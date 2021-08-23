@@ -101,7 +101,8 @@ class Visio2PDFConverter(object) :
     # save the 1st shape in the 1st page to temp svg
     # otherwise the pdf will be A4 or other paper size
     doc = self.visio.Documents.Open(FileName = self.vsdx_temp_file_path)
-    doc.Pages[0].Shapes[0].Export(self.svg_temp_file_path)
+    #doc.Pages[0].Shapes[0].Export(self.svg_temp_file_path)
+    doc.Pages[0].Export(self.svg_temp_file_path) # considering export all element in page. 
     doc.Close()
 
     # convert temp.svg into pdf file
